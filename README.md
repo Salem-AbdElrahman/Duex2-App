@@ -112,9 +112,9 @@ json
 📸 Screenshots
 
 Description	Light Mode	Dark Mode
-💠 Shop Cart	<img src="screenshots/shop-cart.png" alt="Shop Cart">	—
-🔄 Product Grid	<img src="screenshots/product-grid.png" alt="Product Grid">	—
-🎉 Promotional Banner	<img src="screenshots/promotional-banner.png" alt="Promotional Banner">	—
+💠 Shop Cart	<img src="src/assests/screenshots/search.png" alt="Shop Cart">	—
+🔄 Product Grid	<img src="src/assests/screenshots/cart.png" alt="Product Grid">	—
+🎉 Promotional Banner	<img src="src/assests/screenshots/homepage1.png" alt="Promotional Banner">	—
 Note: Screenshots are placeholders. Replace with actual images from your project stored in the screenshots/ folder. Dark mode screenshots can be added if implemented.
 
 🚀 Getting Started
