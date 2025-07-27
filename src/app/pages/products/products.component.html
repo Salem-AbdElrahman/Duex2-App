@@ -1,0 +1,58 @@
+<section>
+  <h2 class="text-2xl my-2">Exploure our Product</h2>
+  <div class="grid my-2 md:grid-cols-2 gap-5">
+        <div> <input type="search" placeholder="search By Name...." class="w-full my-4
+    bg-white border border-gray-300
+   text-gray-900 text-sm rounded-lg focus:ring-blue-500
+    focus:border-blue-500 block  p-2.5 dark:bg-gray-700
+     dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+      dark:focus:ring-blue-500 dark:focus:border-blue-500" [(ngModel)]="text"></div>
+        <div>
+<select [(ngModel)]="sortOption" class="h-[40px] my-4 w-full
+    bg-white border border-gray-300
+   text-gray-900 text-sm rounded-lg focus:ring-blue-500
+    focus:border-blue-500 block  p-2.5 dark:bg-gray-700
+     dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+      dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option value="">Default</option>
+  <option value="name-asc">Name (A_Z)</option>
+  <option value="name-desc">Name (Z_A)</option>
+  <option value="price-asc">Price (Low to High)</option>
+  <option value="price-desc">Price (High to Low)</option>
+</select>
+
+        </div>
+  </div>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+@for(product of products.slice(0,16) | search: text |sort: sortOption; track product.id){
+   <div class="card border border-gray-500/50 rounded-md overflow-hidden shadow relative">
+    <div [routerLink]="['/details' , product.id]">
+        <div class="card-img">
+        <img [src]="product.image" class="w-full h-[250px] object-contain" alt="" />
+      </div>
+      <div class="card-body px-2 py-4">
+        <h4 class=" text-sm">{{product.category}}</h4>
+        <h3 class="font-medium">{{product.title.split(' ',2).join()}}</h3>
+        <div class="flex justify-between items-center">
+          <span class="text-red-600">{{product.price}} EGB</span>
+          <div class="flex items-center">
+            @for(num of [1,2,3,4,5].slice(0, product.rating.rate); track $index){
+<span><i class="fas fa-star text-yellow-300"></i></span>
+            }
+            @if(product.rating.rate % 1 !==0){
+    <i class="fas fa-star-half-stroke text-yellow-300"></i>
+            }
+            <span class="text-gray-500">{{product.rating.rate}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+<div>
+        <button class="bg-black text-white py-2 px-10 border
+        rounded w-[90%] mx-auto block" (click)="AddToCart(product.id,products)">Add To Cart</button>
+
+</div>
+  </div>
+}
+</div>
+</section>

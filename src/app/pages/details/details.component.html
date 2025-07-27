@@ -1,0 +1,30 @@
+@if(detailsProduct){
+  <section class="w-[90%] mx-auto">
+  <h2 class="text-center my-5 text-4xl">Details Product</h2>
+  <div class="grid md:grid-cols-[minmax(0,1fr)_70%] items-center gap-10">
+    <div>
+<img [src]="detailsProduct.image" class="w-full h-[350px]" [alt]="detailsProduct.title">
+    </div>
+<div>
+    <h2> {{detailsProduct.title}} </h2>
+  <p class="text-gray-400"> {{detailsProduct.description}} </p>
+  <h3> {{detailsProduct.category}} </h3>
+   <div class="flex justify-between items-center">
+          <span class="text-red-600">{{detailsProduct.price}} EGB</span>
+          <div class="flex items-center">
+            @for(num of [1,2,3,4,5].slice(0, detailsProduct.rating.rate); track $index){
+<span><i class="fas fa-star text-yellow-300"></i></span>
+            }
+            @if(detailsProduct.rating.rate % 1 !==0){
+    <i class="fas fa-star-half-stroke text-yellow-300"></i>
+            }
+            <span class="text-gray-500">{{detailsProduct.rating.rate}}</span>
+          </div>
+        </div>
+        <div>
+        <button class="bg-black text-white py-2 px-10 border hover:bg-slate-700 rounded w-full my-2 block">+Add To Cart</button>
+        </div>
+        </div>
+      </div>
+</section>
+}
