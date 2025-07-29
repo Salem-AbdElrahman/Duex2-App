@@ -163,7 +163,7 @@ typescript
 
 
 export const API_CONFIG = {
-  baseUrl: "https://api.example.com/",
+  baseUrl: "https://fakestoreapi.com/",
 };
 🔒 Offline Support
 📴 Offline Mode: Automatically loads products from localStorage if no internet.
