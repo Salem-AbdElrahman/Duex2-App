@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withHashLocation, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
@@ -12,9 +12,9 @@ import { loadingInterceptor } from './core/interceptors/loading/loading.intercep
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-     provideRouter(routes),
+     provideRouter(routes,withInMemoryScrolling( {scrollPositionRestoration:'top'}),withHashLocation()),
      provideClientHydration(withEventReplay()),
-      provideHttpClient(withFetch(),withInterceptors([loadingInterceptor])),
+      provideHttpClient(withFetch() ,withInterceptors([loadingInterceptor])),
       provideAnimations(),
       importProvidersFrom(NgxSpinnerModule)
 
